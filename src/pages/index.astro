@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { MarkdownViewer } from '../components/MarkdownViewer';
+import { StorageIntegration } from '../components/StorageIntegration';
+import { Header } from '../components/Header';
+
+const exampleMarkdown = `# papers datasets
+https://github.com/Hannibal046/Awesome-LLM?tab=readme-ov-file#great-thoughts-about-llm
+
+## Big survey
+https://github.com/MilaNLProc/emotion_analysis_survey/blob/main/LREC_survey_data_emotion_analysis.tsv#L9
+
+## tomsup
+https://github.com/KennethEnevoldsen/tomsup/tree/master
+https://kennethenevoldsen.github.io/tomsup/agent.html
+
+I think therefore I am
+https://arxiv.org/pdf/2401.17882`;
+---
+
+<Layout title="Research Notes">
+  <main class="container mx-auto px-4 py-8">
+    <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+      <Header client:load />
+      <StorageIntegration client:load />
+      <div class="bg-gray-900 rounded-lg p-6">
+        <MarkdownViewer content={exampleMarkdown} client:load />
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+  }
+</style>
